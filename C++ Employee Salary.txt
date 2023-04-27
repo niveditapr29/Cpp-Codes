@@ -1,0 +1,48 @@
+/* Write a c++ program by creating an "Employee" class having the following functions and print the finalsalary.
+1. getinfo() which takes the salary and number of hours of work per day of employee as parameters.
+2. addsal() which adds $10 to the salary of the employee if it is less than $500.
+3. addwork() which adds $5 to the salary of the employee if the number of hours of work per day is more than 6 hours */
+
+#include <iostream>
+
+class Employee {
+    private:
+        int salary;
+        int hours;
+    public:
+        void getinfo(int s,int h) {
+            salary=s;
+            hours=h;
+        }
+        void addsal() {
+            if (salary<500) {
+                salary+=10;
+            }
+        }
+        void addwork() {
+            if (hours>6) {
+                salary+=5;
+            }
+        }
+        void display() {
+            using std::cout;
+            cout<<"Final salary is $"<<salary<< '\n';
+        }
+};
+
+int main() {
+    using std::cin;
+    using std::cout;
+    Employee emp1;
+    int salary;
+    int hours;
+    cout<<"Enter salary : ";
+    cin>>salary;
+    cout<<"Enter number of hours worked : ";
+    cin>>hours;
+    emp1.getinfo(salary,hours);
+    emp1.addsal();
+    emp1.addwork();
+    emp1.display();
+    return 0;
+}
