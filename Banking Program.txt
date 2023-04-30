@@ -1,0 +1,85 @@
+//Banking program to show balance, deposit cash and withdraw money
+
+#include<iostream>
+#include<iomanip>
+
+void show_bal(int bal);
+int deposit();
+int withdraw(int bal);
+
+int main() {
+    using std::cout;
+    using std::cin;
+
+    int bal;
+    int choice=0;
+    
+    cout << "Enter your balance : ";
+    cin >> bal;
+
+    do {
+        cout << "\n";
+        cout << "Enter your choice : \n";
+        cout << "1. Show balance\n";
+        cout << "2. Deposit cash\n";
+        cout << "3. Withdraw cash\n";
+        cout << "4. Exit\n";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                show_bal(bal);
+                break;
+            case 2:
+                bal += deposit();
+                show_bal(bal);
+                break;
+            case 3:
+                bal -= withdraw(bal);
+                show_bal(bal);
+                break;
+            case 4:
+                cout << "Thank you for visiting!\n";
+                break;
+            default :
+                cout << "Invalid input\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+
+void show_bal(int bal) {
+    std::cout << "Your balance is Rs " << bal;
+    std::cout << "\n";
+}
+
+int deposit() {
+    int amount;
+
+    std::cout << "Enter the amount you want to deposit : ";
+    std::cin >> amount;
+
+    if (amount > 0) {
+        return amount;
+    }
+    else {
+        std::cout << "Invalid amount\n";
+        return 0;
+    }
+}
+
+int withdraw(int bal) {
+    int amount;
+
+    std::cout << "Enter the amount you want to withdraw : ";
+    std::cin >> amount;
+
+    if (amount > bal) {
+        std::cout << "You do not have that much cash\n";
+        return 0;
+    }
+    else {
+        return amount;
+    }
+}
