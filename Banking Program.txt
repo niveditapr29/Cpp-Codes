@@ -25,6 +25,9 @@ int main() {
         cout << "3. Withdraw cash\n";
         cout << "4. Exit\n";
         cin >> choice;
+        
+        std::cin.clear();
+        fflush(stdin);
 
         switch (choice) {
             case 1:
