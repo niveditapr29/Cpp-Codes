@@ -1,0 +1,24 @@
+// Number Guessing Game
+
+#include<iostream>
+#include<ctime>
+
+int main() {
+    srand(time(NULL));
+    int num = (rand() % 50) + 1;
+    int guess;
+    
+    do {
+        std::cout << "Guess the number between 1 and 50 : ";
+        std::cin >> guess;
+        if (guess == num) {
+            std::cout << "Correct!";
+            break;
+        }
+        else {
+            std::cout << "Wrong! Try again \n";
+        }
+    } while ((guess >=1) && (guess <=50));
+    
+    return 0;
+}
