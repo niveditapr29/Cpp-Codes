@@ -76,7 +76,11 @@ int withdraw(int bal) {
     std::cin >> amount;
 
     if (amount > bal) {
-        std::cout << "You do not have that much cash\n";
+        std::cout << "Insufficient cash\n";
+        return 0;
+    }
+    else if (amount < 0) {
+        std::cout << "Invalid amount\n";
         return 0;
     }
     else {
