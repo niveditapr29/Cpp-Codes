@@ -1,0 +1,26 @@
+//Program to print the number in reverse order
+
+#include<iostream>
+#include<string>
+
+int main() {
+    int n, dig;
+    int n_dup;
+    std::string n_dupe;
+
+    std::cout << "Enter the number : ";
+    std::cin >> n;
+    n_dup = n;
+
+    n_dupe = std::to_string(n);
+    int len = n_dupe.length();
+
+    std::cout << "The reversed number is : ";
+    for (int i = 0; i < len; i++) {
+        dig = n % 10;
+        std::cout << dig;
+        n /= 10;
+    }
+    
+    return 0;
+}
